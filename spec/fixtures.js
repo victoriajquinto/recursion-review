@@ -9,6 +9,7 @@ var stringifiableObjects = [
   true,
   false,
   'Hello world',
+  //if the test objects above this comment are commented out, the arrays are passed into the test
   [],
   [8],
   ['hi'],
