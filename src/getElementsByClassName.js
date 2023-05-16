@@ -10,10 +10,22 @@
 // But instead we're going to implement it from scratch:
 var getElementsByClassName = function(className, rootNode) {
   // your code here
-  var reuslt = [];
+
+  //create empty result array
+  var result = [];
   rootNode = rootNode || document.body;
 
-  //does element have kids? .childNodes
-    //loop through the kids
+  if (rootNode.classList && rootNode.classList.contains(className)) {
+    result.push(rootNode);
+  }
+
+  var children = rootNode.children;
+  for (var i = 0; i < children.length; i++) {
+    result = result.concat(getElementsByClassName(className, children[i]));
+  }
+
+  //if child ... recursions!
+  //Return array
+  return result;
 
 };
